@@ -1,6 +1,7 @@
 import react, { useState } from 'react';
-import styles from './CreditCardForm.module.css';
 
+import Modal from '../../Modals/Modal';
+import styles from './CreditCardForm.module.css';
 import { useInput } from '../../../CustomHooks/useInput';
 
 let CreditCardForm = () => {
@@ -9,6 +10,7 @@ let CreditCardForm = () => {
     const { value:cardNumber, resetValue:resetCardNumber, onChange:changeCardNumber } = useInput('');
     const { value:month, resetValue:resetMonth, onChange:changeMonth } = useInput('');
     const { value:year, resetValue:resetYear, onChange:changeYear } = useInput('');
+    const [showModal, setShowModal] = useState(false); // if this is set to true, then show the modal for the user
 
     let handleSubmit = () => {
         //after the post request is done, reset the state for your form
@@ -17,6 +19,7 @@ let CreditCardForm = () => {
 
     return (
         <div>
+            <Modal />
             <form onSubmit={handleSubmit}>
                 {/* amount input */}
                 <div>
