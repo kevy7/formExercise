@@ -6,20 +6,33 @@ import { useInput } from '../../../CustomHooks/useInput';
 
 let CreditCardForm = () => {
     //initialize our state with useInput
-    const { value:amount, resetValue:resetAmount, onChange:changeAmount, setValue:setAmount } = useInput('hello world');
+    const { value:amount, resetValue:resetAmount, onChange:changeAmount, setValue:setAmount } = useInput('');
     const { value:cardNumber, resetValue:resetCardNumber, onChange:changeCardNumber } = useInput('');
     const { value:month, resetValue:resetMonth, onChange:changeMonth } = useInput('');
     const { value:year, resetValue:resetYear, onChange:changeYear } = useInput('');
     const [showModal, setShowModal] = useState(false); // if this is set to true, then show the modal for the user
 
-    let handleSubmit = () => {
-        //after the post request is done, reset the state for your form
+    //make this an async/await function, wait for the api call to be successfull and then show the modal
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        //data, we pretend will be submitted to our api
+        let obj = {
+            amount, cardNumber, month, year
+        }
 
+        //after the post request is done, reset the state for your form
+        resetAmount();
+        resetCardNumber();
+        resetMonth();
+        resetYear();
+
+        setShowModal(true);
     }
 
     return (
         <div>
-            <Modal />
+            {(showModal && <Modal displayModal={setShowModal}/>)}
             <form onSubmit={handleSubmit}>
                 {/* amount input */}
                 <div>
@@ -28,8 +41,9 @@ let CreditCardForm = () => {
                         className="input" 
                         type="text" 
                         placeholder="" 
-                        name="amount" 
-                        /*value={this.state.eventImage} onChange={this.handleInputChanges}*/ 
+                        name="amount"
+                        value={amount}
+                        onChange={changeAmount}
                     />
                 </div>
                 
@@ -40,9 +54,10 @@ let CreditCardForm = () => {
                         type="tel" 
                         placeholder="Card Number" 
                         pattern="\d*" 
-                        maxlength="16"
+                        maxLength="16"
                         name="cardNumber"
-                        /*value={this.state.eventImage} onChange={this.handleInputChanges}*/ 
+                        value={cardNumber}
+                        onChange={changeCardNumber}
                     />
                 </div>
 
@@ -51,9 +66,10 @@ let CreditCardForm = () => {
                     className="input" 
                     type="tel" 
                     pattern="\d*"
-                    maxlength="2"
+                    maxLength="2"
                     name="MM"
-                    /*value={this.state.eventImage} onChange={this.handleInputChanges}*/ 
+                    value={month}
+                    onChange={changeMonth}
                 />
                 /
                 <label className="label">YYYY</label>
@@ -61,9 +77,10 @@ let CreditCardForm = () => {
                     className="input" 
                     type="text"
                     pattern="\d*"
-                    maxlength="4"
+                    maxLength="4"
                     name="YY"
-                    /*value={this.state.eventImage} onChange={this.handleInputChanges}*/ 
+                    value={year}
+                    onChange={changeYear}
                 />
                 
                 <div>

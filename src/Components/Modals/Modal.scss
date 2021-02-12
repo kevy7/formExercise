@@ -1,0 +1,41 @@
+.modal {
+    // display: none; //usually for Modals, display is hidden
+    position: fixed; //set modals position to fix
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%; //Set modal to fill user's entire screen
+    height: 100%; //Set modal to fill user's entire screen
+    // background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0); //set modal's background to white
+
+    .modal-body {
+        background-color: rgba(0,0,0,0.1);
+        border: 1px solid black;
+        padding: 25px;
+        width: 60%;
+        margin: auto;
+
+        //styling for the close button
+        .modal-body-closebtn {
+            font-size: 20px;
+            float: right;
+            bottom: 20px;
+            padding: 10px;
+            left: 10px;
+            position: relative;
+        }
+
+        .modal-body-closebtn:hover,
+        .modal-body-closebtn:focus {
+            color: gray;
+            cursor: pointer;
+        }
+
+        p {
+            text-align: center;
+        }
+    }
+
+}
