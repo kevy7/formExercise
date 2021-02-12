@@ -1,7 +1,12 @@
-import react from 'react';
+import react, { useState } from 'react';
 import styles from './CreditCardForm.module.css';
 
 let CreditCardForm = () => {
+    //initialize our state data with useState
+    const [amount, setAmount] = useState('');
+    const [cardNumber, setCardNumber] = useState('');
+    const [month, setMonth] = useState('');
+    const [yeaer, setYear] = useState('');
 
     let handleSubmit = () => {
         
