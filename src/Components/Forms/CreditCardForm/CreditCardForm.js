@@ -6,10 +6,13 @@ let CreditCardForm = () => {
     const [amount, setAmount] = useState('');
     const [cardNumber, setCardNumber] = useState('');
     const [month, setMonth] = useState('');
-    const [yeaer, setYear] = useState('');
+    const [year, setYear] = useState('');
 
     let handleSubmit = () => {
-        
+        //make a post request with the data above
+        alert("thank you for submitting your form")
+
+        //after the post request is done, reset the state for your form
     }
 
     return (
