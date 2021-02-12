@@ -1,18 +1,18 @@
 import react, { useState } from 'react';
 import styles from './CreditCardForm.module.css';
 
+import { useInput } from '../../../CustomHooks/useInput';
+
 let CreditCardForm = () => {
-    //initialize our state data with useState
-    const [amount, setAmount] = useState('');
-    const [cardNumber, setCardNumber] = useState('');
-    const [month, setMonth] = useState('');
-    const [year, setYear] = useState('');
+    //initialize our state with useInput
+    const { value:amount, resetValue:resetAmount, onChange:changeAmount, setValue:setAmount } = useInput('hello world');
+    const { value:cardNumber, resetValue:resetCardNumber, onChange:changeCardNumber } = useInput('');
+    const { value:month, resetValue:resetMonth, onChange:changeMonth } = useInput('');
+    const { value:year, resetValue:resetYear, onChange:changeYear } = useInput('');
 
     let handleSubmit = () => {
-        //make a post request with the data above
-        alert("thank you for submitting your form")
-
         //after the post request is done, reset the state for your form
+
     }
 
     return (
@@ -66,6 +66,7 @@ let CreditCardForm = () => {
                 <div>
                     <input type="submit" value="Submit" />
                 </div>
+
             </form>
         </div>
     )
