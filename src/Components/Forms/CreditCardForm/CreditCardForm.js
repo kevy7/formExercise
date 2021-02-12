@@ -3,6 +3,7 @@ import react, { useState } from 'react';
 import Modal from '../../Modals/Modal';
 import styles from './CreditCardForm.module.css';
 import { useInput } from '../../../CustomHooks/useInput';
+import { postPayment } from '../../../Actions';
 
 let CreditCardForm = () => {
     //initialize our state with useInput
@@ -12,29 +13,35 @@ let CreditCardForm = () => {
     const { value:year, resetValue:resetYear, onChange:changeYear } = useInput('');
     const [showModal, setShowModal] = useState(false); // if this is set to true, then show the modal for the user
 
-    //make this an async/await function, wait for the api call to be successfull and then show the modal
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        //data, we pretend will be submitted to our api
-        let obj = {
-            amount, cardNumber, month, year
+        //fake data, we will send to the api route below
+        let paymentInfo = {
+            title: amount,
+            body: cardNumber, 
+            userId: month + "/" + year,
         }
 
-        //after the post request is done, reset the state for your form
-        resetAmount();
-        resetCardNumber();
-        resetMonth();
-        resetYear();
-
-        setShowModal(true);
+        //postPayment will return a promise
+        postPayment(paymentInfo).then(response => {
+            //after the post request is done, reset the state for your form
+            resetAmount();
+            resetCardNumber();
+            resetMonth();
+            resetYear();
+            //show modal after a sucessfull submit
+            setShowModal(true);
+        })
+        .catch(err => {
+            //check for an error from the request
+        })
     }
 
     return (
         <div>
             {(showModal && <Modal displayModal={setShowModal}/>)}
             <form onSubmit={handleSubmit}>
-                {/* amount input */}
                 <div>
                     <label className="label">Amount</label>
                     <input 
