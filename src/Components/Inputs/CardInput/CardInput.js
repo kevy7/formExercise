@@ -18,6 +18,7 @@ const CardInput = (props) => {
                 name={props.name}
                 value={props.value}
                 onChange={props.onChange}
+                onBlur={props.onBlur}
             />
         </div>
     )
@@ -29,6 +30,7 @@ CardInput.propTypes = {
     name: PropTypes.string,
     value: PropTypes.string,
     onChange: PropTypes.func,
+    onBlur: PropTypes.func,
 }
 
 export default CardInput;

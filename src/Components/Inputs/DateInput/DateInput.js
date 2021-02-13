@@ -16,9 +16,10 @@ const DateInput = (props) => {
                     type="tel" 
                     pattern="\d*"
                     maxLength="2"
-                    name="MM"
+                    name="Month"
                     value={props.month}
                     onChange={props.changeMonth}
+                    onBlur={props.onBlurMonth}
                 />
 
             </div>
@@ -32,9 +33,10 @@ const DateInput = (props) => {
                     type="text"
                     pattern="\d*"
                     maxLength="4"
-                    name="YY"
+                    name="Year"
                     value={props.year}
                     onChange={props.changeYear}
+                    onBlur={props.onBlurYear}
                 />
             </div>
 
@@ -47,6 +49,8 @@ DateInput.propTypes = {
     changeMonth: PropTypes.func,
     year: PropTypes.string,
     changeYear: PropTypes.func,
+    onBlurMonth: PropTypes.func,
+    onBlurYear: PropTypes.func,
 }
 
 export default DateInput;

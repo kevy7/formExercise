@@ -11,9 +11,12 @@ const validate = (validators, fieldName, fieldVal) => {
     //loop through and execute each validator
     for(let a = 0; a < validators.length; a ++){
         if(error === null){
-            error = validators[a](fieldVal); //check if there is an error for the following value
+            error = validators[a](fieldName, fieldVal); //check if there is an error for the following value
         }
-        break; //break out from loop once we found an error.
+        else {
+            //break out of loop once an error is identified
+            break; //break out from loop once we found an error.
+        }
     }
 
     return error;

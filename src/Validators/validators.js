@@ -4,7 +4,7 @@
 //checks if field is empty
 export const validateIsEmpty = (fieldName, fieldVal) => {
     if(fieldVal.trim() === ''){
-        return "${fieldName} is a required field."
+        return fieldName + " is a required field."
     }
     return null;
 }
@@ -12,7 +12,7 @@ export const validateIsEmpty = (fieldName, fieldVal) => {
 //check if card number digits is less than 16
 export const validateCardNumberDigits = (fieldName, fieldVal) => {
     if(fieldVal.trim().length !== 16){
-        return "${fieldName} must be 16 digits."
+        return fieldName + " must be 16 digits."
     }
     return null;
 }
@@ -22,11 +22,10 @@ export const validateMonth = (fieldName, fieldVal) => {
 
     //check if month is 2 digits, it must follow the format mm
     if(fieldVal.trim().length !== 2){
-        return fieldName + " must be 2 digits and follow the following format: MM."
+        return fieldName + " must follow the format: MM."
     }
 
-    // let validNumber = validateNumbers(fieldName, fieldVal);
-    if(fieldVal > 12 && fieldVal < 0){
+    if(fieldVal > 12 || fieldVal < 0){
         return fieldName + " is not a valid month number."
     }
 
@@ -37,7 +36,7 @@ export const validateMonth = (fieldName, fieldVal) => {
 export const validateYear = (fieldName, fieldVal) => {
     //check if year is 4 digits, it must follow the format YYYY
     if(fieldVal.trim().length !== 4){
-        return fieldName + " must be 2 digits and follow the following format: YYYY."
+        return fieldName + " must follow the format: YYYY."
     }
 
     return null;
@@ -48,9 +47,18 @@ export const validateNumbers = (fieldName, fieldVal) => {
 
     ///^\d+$/ is a regular expression used to check for only digits
     if(/^\d+$/.test(fieldVal) === false){
-        return fieldName + " must only be numbers. This field can not contain any letters or characters."
+        return fieldName + " can only contain numbers."
     }
 
-    //return null if the condition above is not met
+    return null;
+}
+
+export const validateUSNumbers = (fieldName, fieldVal) => {
+
+    //below is a regular expression used to check for valid U.S. digits
+    if(/^(\d{1,3}(\,\d{3})*|(\d+))(\.\d{2})?$/.test(fieldVal) === false){
+        return fieldName + " can only be in US currency format."
+    }
+
     return null;
 }

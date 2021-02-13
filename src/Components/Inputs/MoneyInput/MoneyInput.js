@@ -28,6 +28,7 @@ MoneyInput.propTypes = {
     name: PropTypes.string,
     value: PropTypes.string,
     onChange: PropTypes.func,
+    onBlur: PropTypes.func,
 }
 
 export default MoneyInput;

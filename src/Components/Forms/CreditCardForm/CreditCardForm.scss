@@ -3,7 +3,10 @@
     flex-direction: column;
     align-items: center;
     .credit-card-form {
-
+        .err-display {
+            font-size: 13px;
+            color: red;
+        }
     }
 }
 
@@ -21,3 +24,8 @@
     cursor: pointer;
     }
 }
+
+//style the submit button if it is disabled
+input[type="submit"]:disabled {
+    background: #dddddd;
+  }
