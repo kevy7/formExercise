@@ -53,7 +53,6 @@ let CreditCardForm = () => {
             <form onSubmit={handleSubmit} className="credit-card-form">
                 <MoneyInput 
                     label="Amount"
-                    placeholder=""
                     value={amount}
                     name="amount"
                     onChange={changeAmount}
@@ -61,7 +60,6 @@ let CreditCardForm = () => {
                 
                 <CardInput 
                     label="Credit Card Number"
-                    placeholder="Card Number"
                     name="cardNumber"
                     value={cardNumber}
                     onChange={changeCardNumber}
