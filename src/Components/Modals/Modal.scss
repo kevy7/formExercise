@@ -8,10 +8,10 @@
     width: 100%; //Set modal to fill user's entire screen
     height: 100%; //Set modal to fill user's entire screen
     // background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0); //set modal's background to white
+    background-color: rgba(0,0,0,0.1); //set modal's background to white
 
     .modal-body {
-        background-color: rgba(0,0,0,0.1);
+        background-color: white;
         border: 1px solid black;
         padding: 25px;
         width: 60%;

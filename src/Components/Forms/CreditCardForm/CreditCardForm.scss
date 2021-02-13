@@ -1,0 +1,23 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .credit-card-form {
+
+    }
+}
+
+.form-btn-wrapper {
+    float: right;
+    margin-top: 10px;
+    width: 100%;
+
+    .form-btn {
+    background: rgb(20, 144, 252);
+    color: white;
+    border: transparent;
+    height: 35px;
+    width: 100%;
+    cursor: pointer;
+    }
+}

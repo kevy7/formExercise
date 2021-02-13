@@ -4,7 +4,7 @@ import Modal from '../../Modals/Modal';
 import MoneyInput from '../../Inputs/MoneyInput/MoneyInput';
 import CardInput from '../../Inputs/CardInput/CardInput';
 import DateInput from '../../Inputs/DateInput/DateInput';
-import styles from './CreditCardForm.module.css';
+import './CreditCardForm.scss';
 import { useInput } from '../../../CustomHooks/useInput';
 import { postPayment } from '../../../Actions';
 
@@ -47,9 +47,10 @@ let CreditCardForm = () => {
     }
 
     return (
-        <div>
+        <div className="form-container">
             {(showModal && <Modal displayModal={setShowModal}/>)}
-            <form onSubmit={handleSubmit}>
+            <h2>Payment Form</h2>
+            <form onSubmit={handleSubmit} className="credit-card-form">
                 <MoneyInput 
                     label="Amount"
                     placeholder=""
@@ -73,8 +74,8 @@ let CreditCardForm = () => {
                     changeYear={changeYear}
                 />
 
-                <div>
-                    <input type="submit" value="Submit" />
+                <div className="form-btn-wrapper">
+                    <input className="form-btn" type="submit" value="Submit" />
                 </div>
 
             </form>
