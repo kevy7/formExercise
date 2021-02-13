@@ -46,6 +46,12 @@ let CreditCardForm = () => {
         })
     }
 
+    const handleBlur = (e) => {
+        //create a validator function and import it from above
+        //Create a list of validators that you can pass into an array and that
+        //array will be passed into your validator function
+    }
+
     return (
         <div className="form-container">
             {(showModal && <Modal displayModal={setShowModal}/>)}
@@ -56,6 +62,12 @@ let CreditCardForm = () => {
                     value={amount}
                     name="amount"
                     onChange={changeAmount}
+                    //first create your list of validator functions
+                    //when ever onBlur is triggered, let's validate the input field
+                    //if there is an error, then let's add that error to our state error object
+                    //below the money input, let's display the erorr if our error obejct contains an error
+                    //example if(error[fieldName]) then display the error message
+                    onBlur={handleBlur}
                 />
                 
                 <CardInput 
