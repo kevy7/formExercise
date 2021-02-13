@@ -1,9 +1,15 @@
 import react, { useState } from 'react';
 
 import Modal from '../../Modals/Modal';
+import MoneyInput from '../../Inputs/MoneyInput/MoneyInput';
+import CardInput from '../../Inputs/CardInput/CardInput';
+import DateInput from '../../Inputs/DateInput/DateInput';
 import styles from './CreditCardForm.module.css';
 import { useInput } from '../../../CustomHooks/useInput';
 import { postPayment } from '../../../Actions';
+
+//import styling
+import '../../Inputs/Inputs.scss';
 
 let CreditCardForm = () => {
     //initialize our state with useInput
@@ -22,6 +28,8 @@ let CreditCardForm = () => {
             body: cardNumber, 
             userId: month + "/" + year,
         }
+
+        console.log(paymentInfo)
 
         //postPayment will return a promise
         postPayment(paymentInfo).then(response => {
@@ -42,54 +50,29 @@ let CreditCardForm = () => {
         <div>
             {(showModal && <Modal displayModal={setShowModal}/>)}
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label className="label">Amount</label>
-                    <input 
-                        className="input" 
-                        type="text" 
-                        placeholder="" 
-                        name="amount"
-                        value={amount}
-                        onChange={changeAmount}
-                    />
-                </div>
+                <MoneyInput 
+                    label="Amount"
+                    placeholder=""
+                    value={amount}
+                    name="amount"
+                    onChange={changeAmount}
+                />
                 
-                <div>
-                    <label className="label">Credit Card Number</label>
-                    <input 
-                        className="input" 
-                        type="tel" 
-                        placeholder="Card Number" 
-                        pattern="\d*" 
-                        maxLength="16"
-                        name="cardNumber"
-                        value={cardNumber}
-                        onChange={changeCardNumber}
-                    />
-                </div>
+                <CardInput 
+                    label="Credit Card Number"
+                    placeholder="Card Number"
+                    name="cardNumber"
+                    value={cardNumber}
+                    onChange={changeCardNumber}
+                />
 
-                <label className="label">MM</label>
-                <input 
-                    className="input" 
-                    type="tel" 
-                    pattern="\d*"
-                    maxLength="2"
-                    name="MM"
-                    value={month}
-                    onChange={changeMonth}
+                <DateInput
+                    month={month}
+                    changeMonth={changeMonth}
+                    year={year}
+                    changeYear={changeYear}
                 />
-                /
-                <label className="label">YYYY</label>
-                <input 
-                    className="input" 
-                    type="text"
-                    pattern="\d*"
-                    maxLength="4"
-                    name="YY"
-                    value={year}
-                    onChange={changeYear}
-                />
-                
+
                 <div>
                     <input type="submit" value="Submit" />
                 </div>

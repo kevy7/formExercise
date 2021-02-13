@@ -1,0 +1,23 @@
+.date-input-container {
+    display: flex;
+    margin: 15px 0px 15px 5px;
+
+    .label {
+        margin: 0px 5px 2px 0px;
+    }
+
+    .input {
+        padding: 5px;
+        font-size: 15px;
+    }
+
+    .month-input {
+        margin-right: 10px;
+        width: 40px;
+    }
+
+    .year-input {
+        width: 70px;
+    }
+
+}

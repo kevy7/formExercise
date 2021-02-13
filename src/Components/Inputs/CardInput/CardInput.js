@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './MoneyInput.scss';
 
-const MoneyInput = (props) => {
+import './CardInput.scss';
+
+const CardInput = (props) => {
     return (
         <div className="input-container">
             <div className="input-label">
                 <label>{props.label}</label>
             </div>
-            {/* <label className="input-label">{props.label}</label> */}
             <input 
                 className="input" 
-                type="text" 
-                placeholder={props.placeholder} 
+                type="tel" 
+                placeholder={props.placeholder}
+                pattern="\d*" 
+                maxLength="16"
                 name={props.name}
                 value={props.value}
                 onChange={props.onChange}
@@ -21,7 +23,7 @@ const MoneyInput = (props) => {
     )
 }
 
-MoneyInput.propTypes = {
+CardInput.propTypes = {
     label: PropTypes.string,
     placeholder: PropTypes.string,
     name: PropTypes.string,
@@ -29,4 +31,4 @@ MoneyInput.propTypes = {
     onChange: PropTypes.func,
 }
 
-export default MoneyInput;
+export default CardInput;
