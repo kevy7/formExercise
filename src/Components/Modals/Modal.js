@@ -9,7 +9,7 @@ const Modal = (props) => {
     }
 
     return (
-        <div className="modal">
+        <div className="modal" data-testid="modal">
             <div className="modal-body">
                 <span className="modal-body-closebtn" onClick={handleClick}>X</span>
                 <p>Success: Payment was made! Thanks for your purchase!</p>

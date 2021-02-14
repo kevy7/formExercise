@@ -20,6 +20,7 @@ const DateInput = (props) => {
                     value={props.month}
                     onChange={props.changeMonth}
                     onBlur={props.onBlurMonth}
+                    data-testid="month-input"
                 />
 
             </div>
@@ -37,6 +38,7 @@ const DateInput = (props) => {
                     value={props.year}
                     onChange={props.changeYear}
                     onBlur={props.onBlurYear}
+                    data-testid="year-input"
                 />
             </div>
 

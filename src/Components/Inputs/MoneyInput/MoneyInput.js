@@ -17,6 +17,7 @@ const MoneyInput = (props) => {
                 value={props.value}
                 onChange={props.onChange}
                 onBlur={props.onBlur}
+                data-testid="money-input"
             />
         </div>
     )

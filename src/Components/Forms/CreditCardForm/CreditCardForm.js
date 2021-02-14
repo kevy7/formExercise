@@ -81,6 +81,7 @@ let CreditCardForm = () => {
     return (
         <div className="form-container">
             {(showModal && <Modal displayModal={setShowModal}/>)}
+            {/* <Modal displayModal={setShowModal}/> */}
             <h2>Payment Form</h2>
             <form onSubmit={handleSubmit} className="credit-card-form">
                 <MoneyInput 
@@ -90,7 +91,7 @@ let CreditCardForm = () => {
                     onChange={changeAmount}
                     onBlur={onBlurAmount}
                 />
-                {(amountErr!==null && <p className="err-display">{amountErr}</p>)}
+                {(amountErr!==null && <p className="err-display" data-testid="err-display">{amountErr}</p>)}
                 
                 <CardInput 
                     label="Credit Card Number"
@@ -99,7 +100,7 @@ let CreditCardForm = () => {
                     onChange={changeCardNumber}
                     onBlur={onBlurCardNumber}
                 />
-                {(cardNumberErr!==null && <p className="err-display">{cardNumberErr}</p>)}
+                {(cardNumberErr!==null && <p className="err-display" data-testid="err-display">{cardNumberErr}</p>)}
 
                 <DateInput
                     month={month}
@@ -109,8 +110,9 @@ let CreditCardForm = () => {
                     onBlurMonth={onBlurMonth}
                     onBlurYear={onBlurYear}
                 />
-                {(monthErr!==null && <p className="err-display">{monthErr}</p>)}
-                {(yearErr!==null && <p className="err-display">{yearErr}</p>)}
+                
+                {(monthErr!==null && <p className="err-display" data-testid="err-display">{monthErr}</p>)}
+                {(yearErr!==null && <p className="err-display" data-testid="err-display">{yearErr}</p>)}
 
                 <div className="form-btn-wrapper">
                     <input 
@@ -129,7 +131,8 @@ let CreditCardForm = () => {
                         } 
                         className="form-btn" 
                         type="submit" 
-                        value="Submit" 
+                        value="Submit"
+                        data-testid="Submit-Form"
                     />
                 </div>
 

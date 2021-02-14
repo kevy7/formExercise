@@ -19,6 +19,7 @@ const CardInput = (props) => {
                 value={props.value}
                 onChange={props.onChange}
                 onBlur={props.onBlur}
+                data-testid="card-input"
             />
         </div>
     )
