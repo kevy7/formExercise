@@ -10,14 +10,12 @@ describe("form is rendered", () => {
 
     test('submit button is rendered', () => {
         render(<CreditCardForm />);
-        //console.log(screen.debug())
         const submitButton = screen.findByTestId("Submit-Form");
         expect(submitButton).toBeTruthy();
     });
 
     //check that the modal is opened after clicking on the submit button
     test("modal is displayed after user succesfully makes a post request", async () => {
-        //render(<CreditCardForm />);
 
         await act (async() => {
             render(<CreditCardForm />);
