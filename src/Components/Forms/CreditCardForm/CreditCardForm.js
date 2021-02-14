@@ -59,7 +59,7 @@ let CreditCardForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        //fake data, we will sent to the api route below
+        //fake data, we will be sent to the api route below
         let paymentInfo = {
             title: amount,
             body: cardNumber, 
