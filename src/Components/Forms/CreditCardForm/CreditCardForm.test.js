@@ -132,7 +132,7 @@ describe("form is rendered", () => {
 })
 
 describe("error messages", () => {
-    test("are not initially shown when the page first renders", async () => {
+    test("are not initially shown when the page first renders and the submit button is initially disabled", async () => {
         render(<CreditCardForm />);
         //return all error elements
         const errorElements = screen.queryAllByTestId("err-display");
@@ -144,7 +144,7 @@ describe("error messages", () => {
         expect(submitBtn.hasAttribute('disabled')).toBe(true);
     })
 
-    test("are not shown when all input values are valid", async () => {
+    test("are not shown when all input values are valid and the submit button is enabled", async () => {
         render(<CreditCardForm />);
 
         //fill the form out
@@ -170,7 +170,7 @@ describe("error messages", () => {
 
     })
 
-    test('are shown when there are errors in every input field', async () => {
+    test('are shown when there are errors in every input field and the submit button is disabled', async () => {
         render(<CreditCardForm />);
 
         //fill the form out
@@ -196,7 +196,7 @@ describe("error messages", () => {
         expect(submitBtn.hasAttribute('disabled')).toBe(true);
     })
 
-    test("are shown when every input field is empty after an onBlur event", async () => {
+    test("are shown when every input field is empty after an onBlur event and the submit button is disabled", async () => {
         render(<CreditCardForm />);
 
         //fill the form out
