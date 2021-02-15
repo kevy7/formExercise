@@ -23,7 +23,7 @@ const CardInput = (props) => {
                 <span className="card-icon">{props.cardType}</span>
                 <input 
                     className={`card-input ${ cardTypeClasses[props.cardType] }`}
-                    type="tel" 
+                    type="text" 
                     placeholder={props.placeholder}
                     pattern="\d*" 
                     maxLength="16"

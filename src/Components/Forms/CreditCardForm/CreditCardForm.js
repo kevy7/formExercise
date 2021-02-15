@@ -69,7 +69,6 @@ let CreditCardForm = () => {
             body: cardType + cardNumber, 
             userId: month + "/" + year,
         }
-
         //postPayment will return a promise
         postPayment(paymentInfo).then(response => {
             //after the post request is done, reset the state for your form

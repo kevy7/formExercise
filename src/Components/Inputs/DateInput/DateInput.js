@@ -13,7 +13,7 @@ const DateInput = (props) => {
                 </div>
                 <input 
                     className="input month-input" 
-                    type="tel" 
+                    type="text" 
                     pattern="\d*"
                     maxLength="2"
                     name="Month"
