@@ -11,8 +11,8 @@ export const validateIsEmpty = (fieldName, fieldVal) => {
 
 //check if card number digits is less than 16
 export const validateCardNumberDigits = (fieldName, fieldVal) => {
-    if(fieldVal.trim().length !== 16){
-        return fieldName + " must be 16 digits."
+    if(fieldVal.trim().length < 13){
+        return fieldName + " must be at least 13 digits."
     }
     return null;
 }
