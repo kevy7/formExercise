@@ -6,9 +6,8 @@ const MoneyInput = (props) => {
     return (
         <div className="input-container">
             <div className="input-label">
-                <label>{props.label}</label>
+                <label data-testid="money-label">{props.label}</label>
             </div>
-            {/* <label className="input-label">{props.label}</label> */}
             <input 
                 className="input" 
                 type="text" 

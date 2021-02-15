@@ -15,7 +15,7 @@ describe("form is rendered", () => {
     });
 
     //check that the modal is opened after clicking on the submit button
-    test("modal is displayed after user succesfully makes a post request", async () => {
+    test("modal is displayed after user successfully makes a post request", async () => {
 
         await act (async() => {
             render(<CreditCardForm />);
