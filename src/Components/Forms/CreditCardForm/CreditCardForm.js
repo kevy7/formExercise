@@ -38,7 +38,7 @@ let CreditCardForm = () => {
         onChange:changeCardNumber,
         error: cardNumberErr,
         onBlur: onBlurCardNumber
-    } = useInput('', [validateIsEmpty, validateNumbers, validateCardNumberDigits]);
+    } = useInput('', [validateIsEmpty, validateNumbers, /*validateCardNumberDigits*/]);
     const { 
         value:month, 
         resetValue:resetMonth, 
@@ -47,12 +47,16 @@ let CreditCardForm = () => {
         onBlur: onBlurMonth
     } = useInput('', [validateIsEmpty, validateNumbers, validateMonth]);
     const { 
-        value:year, 
+        value:year,
         resetValue:resetYear, 
         onChange:changeYear,
         error: yearErr,
         onBlur: onBlurYear
     } = useInput('', [validateIsEmpty, validateNumbers, validateYear]);
+    const {
+        value:cardType,
+        onChange:changeCardType,
+    } = useInput('4', []);
 
     const [showModal, setShowModal] = useState(false); // if this is set to true, then show the modal for the user
 
@@ -62,7 +66,7 @@ let CreditCardForm = () => {
         //fake data, we will be sent to the api route below
         let paymentInfo = {
             title: amount,
-            body: cardNumber, 
+            body: cardType + cardNumber, 
             userId: month + "/" + year,
         }
 
@@ -99,6 +103,8 @@ let CreditCardForm = () => {
                     value={cardNumber}
                     onChange={changeCardNumber}
                     onBlur={onBlurCardNumber}
+                    cardType={cardType}
+                    changeCardType={changeCardType}
                 />
                 {(cardNumberErr!==null && <p className="err-display" data-testid="err-display">{cardNumberErr}</p>)}
 

@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import CreditCardForm from "./Components/Forms/CreditCardForm/CreditCardForm";
 
 function App() {

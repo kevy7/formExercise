@@ -1,0 +1,63 @@
+// .card-icon { 
+//     position: absolute;
+//     padding: 6px;
+//     min-width: 40px;
+//     font-size: 25px;
+// }
+
+
+.card-input-container {
+
+    margin: 15px 0px 15px 0px;
+    display: flex;
+
+    .input-field-container {
+        width: 100%;
+    }
+
+    .card-icon { 
+        position: absolute;
+        padding: 6px;
+        min-width: 40px;
+        font-size: 25px;
+    }
+
+    .input-label {
+        margin: 0px 5px 2px 0px;
+    }
+
+    .card-input {
+        padding: 5px 5px 5px 0px;
+        font-size: 25px;
+        width: 100%;
+    }
+
+    .card-input.card-type-visa-and-master {
+        padding-left: 20px;
+    }
+
+    .card-input.card-type-amex {
+        padding-left: 35px;
+    }
+
+    .card-input.card-type-discover {
+        padding-left: 56px;
+    }
+
+    .card-selection-container {
+        display: flex;
+        flex-direction: column;
+        padding-left: 20px;
+
+        .card-type-label {
+            margin: 0px 5px 2px 0px;
+        }
+
+        .card-type-selection {
+            padding: 5px 5px 5px 5px;
+            font-size: 18px;
+            height: 100%;
+        }
+    }
+    
+}
